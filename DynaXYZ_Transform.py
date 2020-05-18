@@ -4,15 +4,16 @@ import csv
 import geodepy.transform as gt
 
 
-def dynaxyz2csv(dynaxyz_file):
+def dynaxyz2csv(dynaxyz_file, filetype):
     """
     Converts DynAdjust *.xyz file to csv with header info
     :param dynaxyz_file: DynAdjust v1.0 *.xyz
+    :param filetype: type of file, string
     :return: None (writes new *.csv file with info from *.xyz file)
     """
     # Define output file name
     dynaxyz_fname, ext = os.path.splitext(dynaxyz_file)
-    dynacsv_file = dynaxyz_fname + '.csv'
+    dynacsv_file = dynaxyz_fname + filetype
 
     # Open *.xyz file, remove spaces
     with open(dynaxyz_file) as file:
